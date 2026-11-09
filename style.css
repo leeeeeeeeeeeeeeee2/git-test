@@ -1,11 +1,91 @@
-/* ===== 기본 설정 ===== */
+/* ===== Material Design 3 디자인 토큰 ===== */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #1a1a1a;
-  --color-muted: #6b6b6b;
-  --color-accent: #1fa97a;
-  --section-gap: clamp(96px, 15vw, 200px);
-  --side-gap: clamp(24px, 6vw, 80px);
+  color-scheme: light dark;
+
+  /* 색상 역할: 시드 #1fa97a, Tonal Spot 방식으로 생성 */
+  --md-sys-color-primary: #206a4e;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #a9f2cd;
+  --md-sys-color-on-primary-container: #005138;
+  --md-sys-color-secondary: #4d6357;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #cfe9d9;
+  --md-sys-color-on-secondary-container: #354b40;
+  --md-sys-color-tertiary: #3d6373;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #c1e9fb;
+  --md-sys-color-on-tertiary-container: #244c5b;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-surface: #f5fbf5;
+  --md-sys-color-on-surface: #171d1a;
+  --md-sys-color-on-surface-variant: #404943;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #eff5ef;
+  --md-sys-color-surface-container: #eaefe9;
+  --md-sys-color-surface-container-high: #e4eae4;
+  --md-sys-color-surface-container-highest: #dee4de;
+  --md-sys-color-outline: #707973;
+  --md-sys-color-outline-variant: #bfc9c1;
+
+  /* 타이포그래피: M3 타입 스케일 (Roboto에 한글이 없어 Pretendard 사용) */
+  --md-ref-typeface-plain: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --md-sys-typescale-display-large: 400 3.5625rem / 4rem var(--md-ref-typeface-plain);
+  --md-sys-typescale-display-large-tracking: -0.015625rem;
+  --md-sys-typescale-display-medium: 400 2.8125rem / 3.25rem var(--md-ref-typeface-plain);
+  --md-sys-typescale-headline-large: 400 2rem / 2.5rem var(--md-ref-typeface-plain);
+  --md-sys-typescale-display-small: 400 2.25rem / 2.75rem var(--md-ref-typeface-plain);
+  --md-sys-typescale-title-large: 400 1.375rem / 1.75rem var(--md-ref-typeface-plain);
+  --md-sys-typescale-body-large: 400 1rem / 1.5rem var(--md-ref-typeface-plain);
+  --md-sys-typescale-body-large-tracking: 0.03125rem;
+
+  /* 모양 */
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+
+  /* 고도 */
+  --md-sys-elevation-level1: 0 1px 2px rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
+
+  /* 모션 */
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-duration-short3: 150ms;
+  --md-sys-motion-duration-medium2: 300ms;
+  --md-sys-motion-duration-long4: 600ms;
+
+  /* 레이아웃: 창 크기 등급별 여백 (8dp 그리드) */
+  --layout-margin: 24px;
+  --card-padding: 48px;
+  --card-gap: 64px;
+}
+
+/* 다크 테마 색상 역할 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #8dd5b2;
+    --md-sys-color-on-primary: #003825;
+    --md-sys-color-primary-container: #005138;
+    --md-sys-color-on-primary-container: #a9f2cd;
+    --md-sys-color-secondary: #b3ccbd;
+    --md-sys-color-on-secondary: #1f352a;
+    --md-sys-color-secondary-container: #354b40;
+    --md-sys-color-on-secondary-container: #cfe9d9;
+    --md-sys-color-tertiary: #a5ccdf;
+    --md-sys-color-on-tertiary: #073543;
+    --md-sys-color-tertiary-container: #244c5b;
+    --md-sys-color-on-tertiary-container: #c1e9fb;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-surface: #0f1511;
+    --md-sys-color-on-surface: #dee4de;
+    --md-sys-color-on-surface-variant: #bfc9c1;
+    --md-sys-color-surface-container-lowest: #0a0f0c;
+    --md-sys-color-surface-container-low: #171d1a;
+    --md-sys-color-surface-container: #1b211d;
+    --md-sys-color-surface-container-high: #252b28;
+    --md-sys-color-surface-container-highest: #303632;
+    --md-sys-color-outline: #8a938c;
+    --md-sys-color-outline-variant: #404943;
+  }
 }
 
 *,
@@ -17,10 +97,10 @@
 }
 
 body {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.7;
+  font: var(--md-sys-typescale-body-large);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
   word-break: keep-all; /* 한글이 단어 중간에서 끊기지 않도록 */
   -webkit-font-smoothing: antialiased;
 }
@@ -30,20 +110,21 @@ img {
   max-width: 100%;
 }
 
-/* ===== [효과 3] 상단 스크롤 진행률 프로그래스 바 ===== */
+/* ===== [효과 3] M3 선형 진행 표시기 ===== */
 .progress {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
-  height: 3px;
+  height: 4px;
+  background: var(--md-sys-color-secondary-container);
 }
 
 .progress-bar {
   width: 100%;
   height: 100%;
-  background: var(--color-accent);
+  background: var(--md-sys-color-primary);
   transform: scaleX(0); /* script.js에서 진행률(0~1)로 변경 */
   transform-origin: left center;
 }
@@ -57,11 +138,11 @@ img {
   height: 100vh;
   height: 100svh; /* 모바일 주소창 높이를 뺀 화면 높이 */
   min-height: 480px;
-  padding: 0 var(--side-gap);
+  padding: 0 var(--layout-margin);
   overflow: hidden; /* 패럴랙스로 움직인 배경이 섹션 밖으로 나오지 않게 */
-  color: #ffffff;
+  color: #ffffff; /* 사진 위 글자이므로 테마와 무관하게 흰색 유지 */
   text-align: center;
-  background: #2b3540; /* 이미지 로딩 전 배경색 */
+  background: #2c322e; /* 이미지 로딩 전 배경색 */
 }
 
 /* [효과 2] 패럴랙스 배경: script.js에서 translate3d로 이동 */
@@ -74,12 +155,12 @@ img {
   will-change: transform;
 }
 
-/* 흰 글자가 잘 읽히도록 배경 위에 어두운 막을 덮음 */
+/* 흰 글자가 잘 읽히도록 배경 위에 스크림을 덮음 */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10, 18, 28, 0.42);
+  background: rgb(0 0 0 / 0.42);
 }
 
 .hero-text {
@@ -88,26 +169,28 @@ img {
 }
 
 .hero h1 {
-  font-size: clamp(2.75rem, 8vw, 6rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font: var(--md-sys-typescale-display-large);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
 }
 
 .hero p {
-  margin-top: 28px;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  margin-top: 24px;
+  font: var(--md-sys-typescale-title-large);
+  letter-spacing: 0;
 }
 
-/* ===== 콘텐츠 섹션 ===== */
+/* ===== 콘텐츠 섹션: M3 Elevated Card ===== */
 .section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: clamp(48px, 8vw, 120px);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--section-gap) var(--side-gap);
+  gap: var(--card-gap);
+  width: min(1200px, 100% - 2 * var(--layout-margin));
+  margin: var(--layout-margin) auto;
+  padding: var(--card-padding);
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 /* 짝수 섹션은 글과 이미지의 좌우 위치를 바꿈 */
@@ -116,16 +199,13 @@ img {
 }
 
 .section h2 {
-  font-size: clamp(2.25rem, 5vw, 4rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  font: var(--md-sys-typescale-display-small);
+  color: var(--md-sys-color-on-surface);
 }
 
 .section p {
-  margin-top: 24px;
-  font-size: clamp(1rem, 1.4vw, 1.125rem);
-  color: var(--color-muted);
+  margin-top: 16px;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .section-img {
@@ -133,18 +213,18 @@ img {
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 4px;
-  background: #eeeeee; /* 이미지 로딩 전 자리 표시 */
+  border-radius: var(--md-sys-shape-corner-large);
+  background: var(--md-sys-color-surface-container-high); /* 이미지 로딩 전 자리 표시 */
 }
 
 /* ===== [효과 1] 아래에서 위로 부드럽게 페이드인 ===== */
-/* 초기 상태: 투명하고 아래로 48px 내려가 있음 */
+/* 초기 상태: 투명하고 아래로 24px 내려가 있음 */
 .js .reveal {
   opacity: 0;
-  transform: translateY(48px);
+  transform: translateY(24px);
   transition:
-    opacity 0.9s ease-out,
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity var(--md-sys-motion-duration-long4) var(--md-sys-motion-easing-emphasized-decelerate),
+    transform var(--md-sys-motion-duration-long4) var(--md-sys-motion-easing-emphasized-decelerate);
 }
 
 /* 화면에 들어오면 script.js가 is-visible을 붙여 원래 위치로 이동 */
@@ -155,15 +235,21 @@ img {
 
 /* 제목 → 문장 → 이미지 순서로 시차를 두고 등장 */
 .js .reveal.delay-1 {
-  transition-delay: 0.15s;
+  transition-delay: var(--md-sys-motion-duration-short3);
 }
 
 .js .reveal.delay-2 {
-  transition-delay: 0.3s;
+  transition-delay: var(--md-sys-motion-duration-medium2);
 }
 
-/* ===== 반응형: 태블릿·모바일은 한 줄로 쌓기 ===== */
-@media (max-width: 768px) {
+/* ===== 반응형: M3 창 크기 등급 ===== */
+/* Medium 이하(840dp 미만): 한 줄로 쌓기 */
+@media (max-width: 839px) {
+  :root {
+    --card-padding: 32px;
+    --card-gap: 32px;
+  }
+
   .section {
     grid-template-columns: 1fr;
   }
@@ -174,6 +260,29 @@ img {
 
   .section-img {
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* Compact(600dp 미만) */
+@media (max-width: 599px) {
+  :root {
+    --layout-margin: 16px;
+    --card-padding: 24px;
+    --card-gap: 24px;
+  }
+
+  .hero h1 {
+    font: var(--md-sys-typescale-display-medium);
+    letter-spacing: 0;
+  }
+
+  .hero p {
+    font: var(--md-sys-typescale-body-large);
+    letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  }
+
+  .section h2 {
+    font: var(--md-sys-typescale-headline-large);
   }
 }
 
